@@ -14,7 +14,7 @@ struct RecipeList: View {
         
             List(recipes) { recipe in
                 NavigationLink{
-                    RecipeRow(recipe: recipe)
+                    RecipeDetail(recipe: recipe)
                 } label: {
                     RecipeRow(recipe: recipe)
                         .frame(width: 900, height: 110)
