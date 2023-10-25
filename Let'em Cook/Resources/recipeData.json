@@ -1,0 +1,24 @@
+[
+    {
+        "name": "Burrito",
+        "category": "Mexican",
+        "id": 0,
+        "distance":"short",
+        "difficulty":"easy",
+        "spice":"Hot",
+        "time":"long",
+        "description": "Burritofkksdfjsdfj sdkjfs skdjfk snfkjsn kjdsn fkjsd kjfs dkjfhskdjh fjsh fkjshd kjh fkjsdh fkjs dfkskfskd hfkjs dkf sdj fksj dfkj skdj fksjd fkjs dkfj skj dfhkjs dkh fskd fk sdkfj skd fhks fhks hfksjd hfkjs fkjs hfkjs dhfkj",
+        "imageName": "burrito"
+    },
+    {
+        "name": "Orange Chicken",
+        "category": "American",
+        "id": 1,
+        "distance":"short",
+        "difficulty":"easy",
+        "spice":"Hot",
+        "time":"long",
+        "description": "Orange chicken is cool sdkjfs skdjfk snfkjsn kjdsn fkjsd kjfs dkjfhskdjh fjsh fkjshd kjh fkjsdh fkjs dfkskfskd hfkjs dkf sdj fksj dfkj skdj fksjd fkjs dkfj skj dfhkjs dkh fskd fk sdkfj skd fhks fhks hfksjd hfkjs fkjs hfkjs dhfkj",
+        "imageName": "orangechicken"
+    },
+]
