@@ -16,9 +16,13 @@ struct RecipeList: View {
                 NavigationLink{
                     RecipeDetail(recipe: recipe)
                 } label: {
+                    
                     RecipeRow(recipe: recipe)
-                        .frame(width: 900, height: 110)
+                        .frame(width: 300, height: 150)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        
                 }
+                .background(.gray)
                                
             }
                 .navigationTitle("Recipes")
