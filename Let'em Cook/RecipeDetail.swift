@@ -71,7 +71,7 @@ struct RecipeDetail: View {
                 alignment: .topLeading
             )
 
-        }.navigationTitle(recipe.name)
+        }//.navigationTitle(recipe.name)
     }
 }
 

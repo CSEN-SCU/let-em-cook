@@ -26,14 +26,14 @@ struct RecipeRow: View {
                                 VStack{
                                     
                                         HStack{
-                                            Image("difficultyIcon")
+                                            Image(systemName:"chart.bar.fill")
                                             Text(recipe.difficulty)
                                                 .foregroundStyle(.black)
                                         }
                                             .padding()
                                             .cornerRadius(10)
                                         HStack{
-                                            Image("timeIcon")
+                                            Image(systemName:"timer")
                                                 .foregroundStyle(.black)
                                             Text(recipe.time)
                                                 .foregroundStyle(.black)
@@ -44,14 +44,14 @@ struct RecipeRow: View {
                                 Spacer()
                                 VStack {
                                     HStack{
-                                        Image("spiceIcon")
+                                        Image(systemName: "flame.fill")
                                         Text(recipe.spice)
                                             .foregroundStyle(.black)
                                     }
                                         .padding()
                                         .cornerRadius(10)
                                     HStack{
-                                        Image("distanceIcon")
+                                        Image(systemName:"location.fill")
                                         Text(recipe.distance)
                                             .foregroundStyle(.black)
                                     }

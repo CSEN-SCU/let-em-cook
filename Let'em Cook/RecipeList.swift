@@ -22,7 +22,7 @@ struct RecipeList: View {
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                         
                 }
-                .background(.gray)
+               
                                
             }
                 .navigationTitle("Recipes")
