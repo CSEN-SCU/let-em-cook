@@ -9,25 +9,27 @@ import SwiftUI
 import Foundation
 
 struct ContentView: View {
-    @State private var title: String = ""
+    @State private var title: String = "hi"
     
     var body: some View {
-        Text(title)
-        Button(action: {
-            Task{
-                
-                do{
-                    let meals:Meals = try await randomMeal()
-                    title = meals.meals.first?.strMeal ?? "Unknown Meal"
-                }
-                catch{
-                    print("Couldn't parse as:\n\(error)")
+        VStack{
+            Text(title)
+            Button(action: {
+                Task{
                     
+                    do{
+                        let meals:Meals = try await randomMeal()
+                        title = meals.meals.first?.strMeal ?? "Unknown Meal"
+                    }
+                    catch{
+                        print("Couldn't parse as:\n\(error)")
+                        
+                    }
                 }
+            }) {
+                Text("Random Meal")
+                
             }
-        }) {
-           Text("Random Meal")
-            
         }
     }
 }
