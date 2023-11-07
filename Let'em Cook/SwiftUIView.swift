@@ -72,11 +72,11 @@ struct UserMapView: View {
                 }
                 
                 VStack(alignment: .leading){
-                    Text("\(selectedResult?.name ?? "Location")")
+                    Text("\(selectedResult?.name ?? "Select a Location")")
                         .font(.title2)
                         .fontWeight(.bold)
                         
-                    if let selectedResult {
+                    if (selectedResult != nil) {
                         Text("\(travelTime ?? "Travel Time")")
                     }
                     
@@ -86,17 +86,22 @@ struct UserMapView: View {
                 .padding([.top, .leading], 5.0)
                 .frame(height: 100.0)
                 Spacer()
-                Button("Directions"){
-                    
-                    let selLat = selectedResult?.placemark.coordinate.latitude
-                    let selLong = selectedResult?.placemark.coordinate.longitude
-                    let url = URL(string: "maps://?saddr=&daddr=\(selLat),\(selLong)")
-                    if UIApplication.shared.canOpenURL(url!) {
-                          UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                if (selectedResult != nil) {
+                    Button("Directions"){
+                        let selLat = selectedResult?.placemark.coordinate.latitude
+                        let selLong = selectedResult?.placemark.coordinate.longitude
+                        let url = URL(string: "maps://?saddr=&daddr=\(selLat),\(selLong)")
+                        if UIApplication.shared.canOpenURL(url!) {
+                            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                        }
                     }
+                    .padding(.trailing, 10.0).buttonStyle(.borderedProminent)
+                }else{
+                    Button("Directions"){
+            
+                    }
+                    .disabled(true).padding(.trailing, 20.0).tint(.gray)
                 }
-                .padding(.trailing, 10.0)
-                    
             }
             .padding([.top, .leading, .trailing], 10.0)
             
