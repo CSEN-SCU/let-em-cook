@@ -8,6 +8,9 @@
 import Foundation
 
 var recipes: [Recipe] = load("recipeData.json")
+//var recipes:[Recipe] = meals.meals
+
+
 
 func load<T: Decodable>(_ filename: String) -> T{
     let data:Data
@@ -29,6 +32,12 @@ func load<T: Decodable>(_ filename: String) -> T{
         let decoder = JSONDecoder()
         return try decoder.decode(T.self, from: data)
     } catch {
-        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
+        fatalError("Couldn't parse \(filename) as \(Meals.self):\n\(error)")
     }
 }
+/*
+func randomMeal() async throws->Meals{
+    let (data, _) = try await URLSession.shared.data(from: URL(string: "https://www.themealdb.com/api/json/v1/1/random.php")!)
+    let meals:Meals = try JSONDecoder().decode(Meals.self, from: data)
+    return meals
+}*/
