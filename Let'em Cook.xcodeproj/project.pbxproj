@@ -11,7 +11,7 @@
 		1B1A328F2ADF0E13001738C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A328E2ADF0E13001738C3 /* ContentView.swift */; };
 		1B1A32912ADF0E19001738C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B1A32902ADF0E19001738C3 /* Assets.xcassets */; };
 		1B1A32942ADF0E19001738C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B1A32932ADF0E19001738C3 /* Preview Assets.xcassets */; };
-		B33E24582AF0615F001FF509 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33E24572AF0615F001FF509 /* SwiftUIView.swift */; };
+		B33B3A632AFAF8D200C8812B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33B3A622AFAF8D200C8812B /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +20,7 @@
 		1B1A328E2ADF0E13001738C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1B1A32902ADF0E19001738C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B1A32932ADF0E19001738C3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B33E24572AF0615F001FF509 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		B33B3A622AFAF8D200C8812B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B3F3DD7D2AF088FC00B7D3E3 /* Let-em-Cook-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Let-em-Cook-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -38,6 +38,7 @@
 		1B1A32802ADF0E12001738C3 = {
 			isa = PBXGroup;
 			children = (
+				B33B3A622AFAF8D200C8812B /* MapView.swift */,
 				1B1A328B2ADF0E13001738C3 /* Let'em Cook */,
 				1B1A328A2ADF0E13001738C3 /* Products */,
 			);
@@ -57,7 +58,6 @@
 				B3F3DD7D2AF088FC00B7D3E3 /* Let-em-Cook-Info.plist */,
 				1B1A328C2ADF0E13001738C3 /* Let_em_CookApp.swift */,
 				1B1A328E2ADF0E13001738C3 /* ContentView.swift */,
-				B33E24572AF0615F001FF509 /* SwiftUIView.swift */,
 				1B1A32902ADF0E19001738C3 /* Assets.xcassets */,
 				1B1A32922ADF0E19001738C3 /* Preview Content */,
 			);
@@ -143,8 +143,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B1A328F2ADF0E13001738C3 /* ContentView.swift in Sources */,
+				B33B3A632AFAF8D200C8812B /* MapView.swift in Sources */,
 				1B1A328D2ADF0E13001738C3 /* Let_em_CookApp.swift in Sources */,
-				B33E24582AF0615F001FF509 /* SwiftUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
