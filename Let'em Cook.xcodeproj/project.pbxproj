@@ -11,6 +11,7 @@
 		1B1A328F2ADF0E13001738C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A328E2ADF0E13001738C3 /* ContentView.swift */; };
 		1B1A32912ADF0E19001738C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B1A32902ADF0E19001738C3 /* Assets.xcassets */; };
 		1B1A32942ADF0E19001738C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B1A32932ADF0E19001738C3 /* Preview Assets.xcassets */; };
+		B33E24582AF0615F001FF509 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33E24572AF0615F001FF509 /* SwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		1B1A328E2ADF0E13001738C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1B1A32902ADF0E19001738C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B1A32932ADF0E19001738C3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B33E24572AF0615F001FF509 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		B3F3DD7D2AF088FC00B7D3E3 /* Let-em-Cook-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Let-em-Cook-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +54,10 @@
 		1B1A328B2ADF0E13001738C3 /* Let'em Cook */ = {
 			isa = PBXGroup;
 			children = (
+				B3F3DD7D2AF088FC00B7D3E3 /* Let-em-Cook-Info.plist */,
 				1B1A328C2ADF0E13001738C3 /* Let_em_CookApp.swift */,
 				1B1A328E2ADF0E13001738C3 /* ContentView.swift */,
+				B33E24572AF0615F001FF509 /* SwiftUIView.swift */,
 				1B1A32902ADF0E19001738C3 /* Assets.xcassets */,
 				1B1A32922ADF0E19001738C3 /* Preview Content */,
 			);
@@ -139,6 +144,7 @@
 			files = (
 				1B1A328F2ADF0E13001738C3 /* ContentView.swift in Sources */,
 				1B1A328D2ADF0E13001738C3 /* Let_em_CookApp.swift in Sources */,
+				B33E24582AF0615F001FF509 /* SwiftUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,11 +276,14 @@
 				DEVELOPMENT_TEAM = Q4F9T3VALF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Let-em-Cook-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,11 +308,14 @@
 				DEVELOPMENT_TEAM = Q4F9T3VALF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Let-em-Cook-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
