@@ -1,8 +1,8 @@
 //
-//  Let_em_CookApp.swift
-//  Let'em Cook
+//  Let_EmCook_Search_BarApp.swift
+//  Let'EmCook Search Bar
 //
-//  Created by Arnav Choudhury on 10/17/23.
+//  Created by Chris Augustine on 10/27/23.
 //
 
 import SwiftUI
