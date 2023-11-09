@@ -63,54 +63,8 @@ struct RecipeRow: View {
                             }
                         }
                     
-        //    )
         }
-        /*
-        Color.green
-            .overlay(
-                
-            HStack{
-                SquareRoundBorder(image: recipe.image)
-                    .frame(width:90, height:90)
-                    .padding(.leading,20)
-                VStack{
-                    Text(recipe.name)
-                        .font(.title)
-                    
-                    HStack{
-                        VStack{
-                            HStack{
-                                Image("spiceIcon")
-                                Text(recipe.spice)
-                                    .foregroundStyle(.white)
-                            }
-                            Spacer()
-                            HStack{
-                                Image("timeIcon")
-                                Text(recipe.time)
-                                    .foregroundStyle(.white)
-                            }
-                                                   }
-                        VStack{
-                            HStack{
-                                Image("difficultyIcon")
-                                Text(recipe.difficulty)
-                                    .foregroundStyle(.white)
-                            }
-                            Spacer()
-                            HStack{
-                                Image("distanceIcon")
-                                Text(recipe.distance)
-                                    .foregroundStyle(.white)
-                            }
-                            
-                        }
-                    }
-                    Spacer()
-                }
-                Spacer()
-            }
-        )*/
+        
     }
 
 

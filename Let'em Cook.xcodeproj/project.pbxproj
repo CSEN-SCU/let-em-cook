@@ -18,6 +18,8 @@
 		1B80A0CC2AE866EE0015FBEF /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B80A0CB2AE866EE0015FBEF /* ModelData.swift */; };
 		1B80A0D02AE875790015FBEF /* recipeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B80A0CF2AE875790015FBEF /* recipeData.json */; };
 		1B80A0D22AE8781C0015FBEF /* RecipeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B80A0D12AE8781C0015FBEF /* RecipeList.swift */; };
+		1BFD89722AFB64BF0029A1E0 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFD89712AFB64BF0029A1E0 /* TestView.swift */; };
+		1BFD89782AFD7EF80029A1E0 /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFD89772AFD7EF80029A1E0 /* RecipeViewModel.swift */; };
 		9D5296DC2AFB084600194AC7 /* landing_page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5296DB2AFB084600194AC7 /* landing_page.swift */; };
 		B33B3A672AFAFD7200C8812B /* SwiftUIMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33B3A662AFAFD7200C8812B /* SwiftUIMapView.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +37,8 @@
 		1B80A0CB2AE866EE0015FBEF /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		1B80A0CF2AE875790015FBEF /* recipeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = recipeData.json; sourceTree = "<group>"; };
 		1B80A0D12AE8781C0015FBEF /* RecipeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeList.swift; sourceTree = "<group>"; };
+		1BFD89712AFB64BF0029A1E0 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		1BFD89772AFD7EF80029A1E0 /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
 		9D5296DB2AFB084600194AC7 /* landing_page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = landing_page.swift; sourceTree = "<group>"; };
 		B33B3A662AFAFD7200C8812B /* SwiftUIMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIMapView.swift; sourceTree = "<group>"; };
 		B3F3DD7D2AF088FC00B7D3E3 /* Let-em-Cook-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Let-em-Cook-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -80,6 +84,8 @@
 				1B7FDACA2AE9A21000126CFE /* RecipeDetail.swift */,
 				1B80A0CB2AE866EE0015FBEF /* ModelData.swift */,
 				1B80A0C02AE861470015FBEF /* Recipe.swift */,
+				1BFD89712AFB64BF0029A1E0 /* TestView.swift */,
+				1BFD89772AFD7EF80029A1E0 /* RecipeViewModel.swift */,
 				B33B3A662AFAFD7200C8812B /* SwiftUIMapView.swift */,
 				1B1A328E2ADF0E13001738C3 /* ContentView.swift */,
 				1B1A32902ADF0E19001738C3 /* Assets.xcassets */,
@@ -177,7 +183,9 @@
 			files = (
 				1B7FDACB2AE9A21000126CFE /* RecipeDetail.swift in Sources */,
 				B33B3A672AFAFD7200C8812B /* SwiftUIMapView.swift in Sources */,
+				1BFD89722AFB64BF0029A1E0 /* TestView.swift in Sources */,
 				9D5296DC2AFB084600194AC7 /* landing_page.swift in Sources */,
+				1BFD89782AFD7EF80029A1E0 /* RecipeViewModel.swift in Sources */,
 				1B1A328F2ADF0E13001738C3 /* ContentView.swift in Sources */,
 				1B1A328D2ADF0E13001738C3 /* Let_em_CookApp.swift in Sources */,
 				1B80A0BF2AE860EE0015FBEF /* RecipeRow.swift in Sources */,

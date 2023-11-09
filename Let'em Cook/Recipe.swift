@@ -43,7 +43,7 @@ struct Meal: Identifiable,Decodable{
     var strDrinkAlternate:String?
     var strArea:String?
     var strInstructions:String?
-    var strMealThumb:URL?
+    var strMealThumb:String?
     var strTags:String?
     var strIngredient1:String?
     var strIngredient2:String?

@@ -10,6 +10,7 @@ import SwiftUI
 struct RecipeList: View {
     var body: some View {
         
+        
         NavigationView{
         
             List(recipes) { recipe in
