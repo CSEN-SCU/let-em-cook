@@ -74,9 +74,9 @@ struct RecipeDetail: View {
         }.navigationTitle(recipe.name)
     }
 }
-
-struct RecipeDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipeDetail(recipe: recipes[1])
-    }
-}
+//
+//struct RecipeDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecipeDetail(recipe: recipes[1])
+//    }
+//}

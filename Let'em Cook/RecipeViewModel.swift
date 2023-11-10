@@ -50,4 +50,8 @@ class WebService: Codable {
         guard let data: Meals = await WebService().downloadData(fromURL: "https://www.themealdb.com/api/json/v1/1/random.php") else {return}
         meals=data
     }
+    func mealByFirstLetter(c: String) async{
+        guard let data: Meals = await WebService().downloadData(fromURL: "https://themealdb.com/api/json/v1/1/search.php?f="+c) else {return}
+        meals=data
+    }
 }

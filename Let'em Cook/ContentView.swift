@@ -11,24 +11,24 @@ import Foundation
 struct ContentView: View {
     @State private var title: String = "hi"
     @State private var isActive = false
-    @State private var meal: Meal?
+    @State private var meals: Meals?
     @ObservedObject var vm = RecipeViewModel()
     var body: some View {
         NavigationView{
             VStack{
                 Text(title)
-                NavigationLink(destination:RecipeList(recipe: meal),isActive: $isActive){
+                NavigationLink(destination: RecipeList(recipes: vm.meals) , isActive: $isActive){
                     Button(action: {
                         Task{
                             
-                            await vm.randomMeal()
-                            meal = vm.meals?.meals.first
-                            print("Hello")
+                            await vm.mealByFirstLetter(c:"a")
+                            //meal = vm.meals?.meals.first
+                            print(vm.meals)
                             isActive=true
                         }
                         
                     }) {
-                        Text("Random Meal")
+                        Text("Random Meals")
                     }
                 }
             }

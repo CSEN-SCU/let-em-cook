@@ -27,8 +27,8 @@ struct Recipe: Hashable,Identifiable,Decodable{
     
 }
 
-struct Meal: Identifiable,Decodable{
-    var id:String?
+struct Meal: Decodable{
+    var idMeal: String
     
     var name: String?
     var description: String?
@@ -38,7 +38,7 @@ struct Meal: Identifiable,Decodable{
     var spice:String?
     var time:String?
     
-    var idMeal: String?
+    
     var strMeal:String?
     var strDrinkAlternate:String?
     var strArea:String?
@@ -92,6 +92,10 @@ struct Meal: Identifiable,Decodable{
     var strCreativeCommonsConfirmed:String?
     var dateModified:String?
     
+}
+// Now conform to Identifiable
+extension Meal: Identifiable {
+    var id: String { return idMeal  }
 }
 struct Meals: Decodable{
     let meals:[Meal]

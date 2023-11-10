@@ -67,14 +67,14 @@ struct RecipeRow: View {
         
     }
 
-
-struct RecipeRow_Previews: PreviewProvider {
-    static var previews: some View {
-        Group{
-            RecipeRow(recipe: recipes[0])
-            RecipeRow(recipe: recipes[1])
-
-            
-        }
-    }
-}
+//
+//struct RecipeRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group{
+//            RecipeRow(recipe: recipes[0])
+//            RecipeRow(recipe: recipes[1])
+//
+//            
+//        }
+//    }
+//}
