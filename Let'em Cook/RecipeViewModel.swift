@@ -43,6 +43,7 @@ class WebService: Codable {
 
 @MainActor class RecipeViewModel: ObservableObject {
     @Published var meals: Meals?
+    @Published var meal:Meal?
     init(){
         print("Recipe View Model Init")
     }
@@ -50,8 +51,19 @@ class WebService: Codable {
         guard let data: Meals = await WebService().downloadData(fromURL: "https://www.themealdb.com/api/json/v1/1/random.php") else {return}
         meals=data
     }
-    func mealByFirstLetter(c: String) async{
+    func mealsByFirstLetter(c: String) async{
+        if (c.count > 1){
+            return
+        }
         guard let data: Meals = await WebService().downloadData(fromURL: "https://themealdb.com/api/json/v1/1/search.php?f="+c) else {return}
+        meals=data
+    }
+    func mealsBySearch(c: String) async{
+        guard let data: Meals = await WebService().downloadData(fromURL: "https://themealdb.com/api/json/v1/1/search.php?s="+c) else {return}
+        meals=data
+    }
+    func mealsByIngridient(c:String) async{
+        guard let data: Meals = await WebService().downloadData(fromURL: "https://www.themealdb.com/api/json/v1/1/filter.php?i="+c) else {return}
         meals=data
     }
 }

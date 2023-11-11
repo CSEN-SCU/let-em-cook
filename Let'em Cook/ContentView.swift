@@ -20,13 +20,9 @@ struct ContentView: View {
                 NavigationLink(destination: RecipeList(recipes: vm.meals) , isActive: $isActive){
                     Button(action: {
                         Task{
-                            
-                            await vm.mealByFirstLetter(c:"a")
-                            //meal = vm.meals?.meals.first
-                            print(vm.meals)
+                            await vm.mealsByIngridient(c:"chicken")
                             isActive=true
                         }
-                        
                     }) {
                         Text("Random Meals")
                     }
@@ -36,13 +32,6 @@ struct ContentView: View {
         }
     }
 }
-/*
-func randomMeal() async throws->Meals{
-    let (data, _) = try await URLSession.shared.data(from: URL(string: "https://www.themealdb.com/api/json/v1/1/random.php")!)
-    let meals:Meals = try JSONDecoder().decode(Meals.self, from: data)
-    return meals
-}
- */
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
