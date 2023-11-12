@@ -65,5 +65,6 @@ class WebService: Codable {
     func mealsByIngridient(c:String) async{
         guard let data: Meals = await WebService().downloadData(fromURL: "https://www.themealdb.com/api/json/v1/1/filter.php?i="+c) else {return}
         meals=data
+        print(await WebService().downloadData(fromURL: "https://www.themealdb.com/api/json/v1/1/filter.php?i="+c))
     }
 }
