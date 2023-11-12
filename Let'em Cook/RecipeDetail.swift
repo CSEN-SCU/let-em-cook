@@ -9,14 +9,10 @@ import SwiftUI
 
 struct RecipeDetail: View {
     var recipe: Meal
-    var dummyIngredients: [String] = ["Burrito", "Person to eat the burrito"]
     var body: some View {
             ScrollView {
                 ZStack{
-//                    recipe.image
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-                    AsyncImage(url: URL(string:recipe.strMealThumb ?? "NA" ))
+                    AsyncImage(url: URL(string:recipe.thumbnail ?? "NA" ))
                         { image in image.resizable() }
                         placeholder: { Color.gray }
                             .frame(width: .infinity)
@@ -24,12 +20,12 @@ struct RecipeDetail: View {
                 }
                 
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("Description")
+                    Text("Instructions")
                         .font(.title)
                         .fontWeight(.bold)
                         .padding(.top, 5)
                     
-                    Text(recipe.description ?? "No description provided.")
+                    Text(recipe.instructions)
                         .font(.body)
                         .padding(.bottom, 20)
                     
@@ -55,7 +51,7 @@ struct RecipeDetail: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 5){
-                        ForEach(dummyIngredients, id: \.self) { data in
+                        ForEach(recipe.ingredients, id: \.self) { data in
                             Text("•  \(data)")
                         }
                     }
@@ -74,9 +70,25 @@ struct RecipeDetail: View {
                 maxWidth: .infinity,
                 alignment: .topLeading
             )
-            .navigationTitle(recipe.strMeal ?? "Unnamed Recipe")
+            .navigationTitle(recipe.name)
     }
 }
+
+//struct Ingredient: Identifiable {
+//    let name: String
+//    let amount: String
+//    let id = UUID()
+//}
+//
+//struct IngredientTable: View {
+//    var body: some View {
+//        Table(ingredients) {
+//            TableColumn("Ingredient", value: \.name)
+//            TableColumn("Amount", value: \.amount)
+//        }
+//    }
+//}
+
 //
 //struct RecipeDetail_Previews: PreviewProvider {
 //    static var previews: some View {

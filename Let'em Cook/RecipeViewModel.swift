@@ -15,30 +15,85 @@ enum NetworkError: Error {
     case failedToDecodeResponse
 }
 
-class WebService: Codable {
-    func downloadData<T: Decodable>(fromURL: String) async -> T? {
-        do {
-            guard let url = URL(string: fromURL) else { throw NetworkError.badUrl }
-            let (data, response) = try await URLSession.shared.data(from: url)
-            guard let response = response as? HTTPURLResponse else { throw NetworkError.badResponse }
-            guard response.statusCode >= 200 && response.statusCode < 300 else { throw NetworkError.badStatus }
-            guard let decodedResponse = try? JSONDecoder().decode(T.self, from: data) else { throw NetworkError.failedToDecodeResponse }
-            
-            return decodedResponse
-        } catch NetworkError.badUrl {
-            print("There was an error creating the URL")
-        } catch NetworkError.badResponse {
-            print("Did not get a valid response")
-        } catch NetworkError.badStatus {
-            print("Did not get a 2xx status code from the response")
-        } catch NetworkError.failedToDecodeResponse {
-            print("Failed to decode response into the given type")
-        } catch {
-            print("An error occured downloading the data")
+func getMeals(query: String) -> [Meal] {
+    var results: [Meal] = []
+
+    do {
+        if let file = URL(string: "https://www.themealdb.com/api/json/v1/1/\(query)") {
+            let data = try Data(contentsOf: file)
+            let json = try JSONSerialization.jsonObject(with: data, options: [])
+
+            if let object = json as? [String: Any] {
+
+                if let meals = object["meals"] as? any Sequence {
+                    for meal in meals {
+
+                        if let mealDict = meal as? [String: Any] {
+                            var result = Meal()
+
+                            if mealDict.keys.contains("strMeal"){
+                                if let val = mealDict["strMeal"] as? String {
+                                    result.name = val
+                                }
+                            }
+
+                            if mealDict.keys.contains("strCategory"){
+                                if let val = mealDict["strCategory"] as? String {
+                                    result.category = val
+                                }
+                            }
+
+                            if mealDict.keys.contains("strArea"){
+                                if let val = mealDict["strArea"] as? String {
+                                    result.origin = val
+                                }
+                            }
+
+                            if mealDict.keys.contains("strInstructions"){
+                                if let val = mealDict["strInstructions"] as? String {
+                                    result.instructions = val
+                                }
+                            }
+
+                            if mealDict.keys.contains("strMealThumb"){
+                                if let val = mealDict["strMealThumb"] as? String {
+                                    result.thumbnail = val
+                                }
+                            }
+
+                            for i in 1...20 {
+                                if mealDict.keys.contains("strIngredient\(i)") {
+                                    if let val = mealDict["strIngredient\(i)"] as? String {
+                                        if !val.isEmpty {
+                                            result.ingredients.append(val)
+                                        }
+                                    }
+                                }
+
+                                if mealDict.keys.contains("strMeasure\(i)") {
+                                    if let val = mealDict["strMeasure\(i)"] as? String {
+                                        if !val.isEmpty {
+                                            result.measures.append(val)
+                                        }
+                                    }
+                                }
+                            }
+
+                            results.append(result)
+                        }
+                    }
+                }
+            }
+
+        } else {
+            print("no file")
         }
-        
-        return nil
+    } catch {
+        print(error.localizedDescription)
+        return []
     }
+    
+    return results
 }
 
 @MainActor class RecipeViewModel: ObservableObject {
@@ -48,22 +103,20 @@ class WebService: Codable {
         print("Recipe View Model Init")
     }
     func randomMeal() async{
-        guard let data: Meals = await WebService().downloadData(fromURL: "https://www.themealdb.com/api/json/v1/1/random.php") else {return}
-        meals=data
+        meals = Meals(meals: getMeals(query: "random.php"))
+        
     }
     func mealsByFirstLetter(c: String) async{
         if (c.count > 1){
             return
         }
-        guard let data: Meals = await WebService().downloadData(fromURL: "https://themealdb.com/api/json/v1/1/search.php?f="+c) else {return}
-        meals=data
+        
+        meals = Meals(meals: getMeals(query: "search.php?f="+c))
     }
     func mealsBySearch(c: String) async{
-        guard let data: Meals = await WebService().downloadData(fromURL: "https://themealdb.com/api/json/v1/1/search.php?s="+c) else {return}
-        meals=data
+        meals = Meals(meals: getMeals(query: "search.php?s="+c))
     }
-    func mealsByIngridient(c:String) async{
-        guard let data: Meals = await WebService().downloadData(fromURL: "https://www.themealdb.com/api/json/v1/1/filter.php?i="+c) else {return}
-        meals=data
+    func mealsByIngredient(c:String) async{
+        meals = Meals(meals: getMeals(query: "search.php?s="+"chicken"))
     }
 }

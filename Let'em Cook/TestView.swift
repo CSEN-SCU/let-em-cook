@@ -17,7 +17,7 @@ struct TestView: View {
        //     .overlay(
             HStack {
                 AsyncImage(
-                    url: URL(string:recipe?.strMealThumb ?? "NA" )
+                    url: URL(string:recipe?.thumbnail ?? "NA" )
                 )
                     { image in image.resizable() }
             placeholder: { Color.gray }
@@ -32,7 +32,7 @@ struct TestView: View {
 
                 Spacer()
                 VStack(spacing:-15){
-                    Text(recipe?.strMeal ?? "NA")
+                    Text(recipe?.name ?? "NA")
                         .font(.title)
                     HStack{
                     VStack{
