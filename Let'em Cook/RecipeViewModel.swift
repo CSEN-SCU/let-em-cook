@@ -15,12 +15,12 @@ enum NetworkError: Error {
     case failedToDecodeResponse
 }
 
-func getMeals(query: String) -> [Meal] {
+func getMeals(query: String) async -> [Meal] {
     var results: [Meal] = []
 
     do {
         if let file = URL(string: "https://www.themealdb.com/api/json/v1/1/\(query)") {
-            let data = try Data(contentsOf: file)
+            let (data, _) = try await URLSession.shared.data(from: file)
             let json = try JSONSerialization.jsonObject(with: data, options: [])
 
             if let object = json as? [String: Any] {
@@ -97,7 +97,7 @@ func getMeals(query: String) -> [Meal] {
         print("Recipe View Model Init")
     }
     func randomMeal() async{
-        meals = Meals(meals: getMeals(query: "random.php"))
+        meals = await Meals(meals: getMeals(query: "random.php"))
         
     }
     func mealsByFirstLetter(c: String) async{
@@ -105,12 +105,12 @@ func getMeals(query: String) -> [Meal] {
             return
         }
         
-        meals = Meals(meals: getMeals(query: "search.php?f="+c))
+        meals = await Meals(meals: getMeals(query: "search.php?f="+c))
     }
     func mealsBySearch(c: String) async{
-        meals = Meals(meals: getMeals(query: "search.php?s="+c))
+        meals = await Meals(meals: getMeals(query: "search.php?s="+c))
     }
     func mealsByIngredient(c:String) async{
-        meals = Meals(meals: getMeals(query: "search.php?s="+"chicken"))
+        meals = await Meals(meals: getMeals(query: "search.php?s="+"chicken"))
     }
 }
