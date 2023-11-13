@@ -111,6 +111,6 @@ func getMeals(query: String) async -> [Meal] {
         meals = await Meals(meals: getMeals(query: "search.php?s="+c))
     }
     func mealsByIngredient(c:String) async{
-        meals = await Meals(meals: getMeals(query: "search.php?s="+"chicken"))
+        meals = await Meals(meals: getMeals(query: "search.php?s="+c))
     }
 }
