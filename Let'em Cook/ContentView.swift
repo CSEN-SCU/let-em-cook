@@ -20,7 +20,7 @@ struct ContentView: View {
                 NavigationLink(destination: RecipeList(recipes: vm.meals) , isActive: $isActive){
                     Button(action: {
                         Task{
-                            await vm.mealsByIngridient(c:"chicken")
+                            await vm.mealsByIngredient(c:"chicken")
                             isActive=true
                         }
                     }) {

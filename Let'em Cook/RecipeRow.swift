@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecipeRow: View {
-    var recipe: Recipe
+
     var body: some View {
        // Color.green
        //     .overlay(
