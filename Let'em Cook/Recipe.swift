@@ -10,6 +10,7 @@ import SwiftUI
 import CoreLocation
 
 struct Ingredient: Decodable, Hashable, Identifiable {
+    var id: String = UUID().uuidString
     var name: String
     var amount: String
 }
