@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TestView: View {
+struct RecipeRow: View {
     var recipe:Meal?
     //@State private var recipe: Meal?
     @ObservedObject var vm = RecipeViewModel()

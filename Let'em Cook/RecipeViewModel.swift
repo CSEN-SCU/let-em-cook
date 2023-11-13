@@ -62,21 +62,15 @@ func getMeals(query: String) -> [Meal] {
                             }
 
                             for i in 1...20 {
-                                if mealDict.keys.contains("strIngredient\(i)") {
-                                    if let val = mealDict["strIngredient\(i)"] as? String {
-                                        if !val.isEmpty {
-                                            result.ingredients.append(val)
+                                if mealDict.keys.contains("strIngredient\(i)") && mealDict.keys.contains("strMeasure\(i)") {
+                                    if let ingredientName = mealDict["strIngredient\(i)"] as? String,
+                                       let measure = mealDict["strMeasure\(i)"] as? String {
+                                        if !ingredientName.isEmpty && !measure.isEmpty  {
+                                            result.ingredients.append(Ingredient(name: ingredientName, amount: measure))
                                         }
                                     }
                                 }
 
-                                if mealDict.keys.contains("strMeasure\(i)") {
-                                    if let val = mealDict["strMeasure\(i)"] as? String {
-                                        if !val.isEmpty {
-                                            result.measures.append(val)
-                                        }
-                                    }
-                                }
                             }
 
                             results.append(result)

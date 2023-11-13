@@ -52,7 +52,7 @@ struct RecipeDetail: View {
                     
                     VStack(alignment: .leading, spacing: 5){
                         ForEach(recipe.ingredients, id: \.self) { data in
-                            Text("•  \(data)")
+                            Text("•  \(data.name)")
                         }
                     }
                     
@@ -73,21 +73,6 @@ struct RecipeDetail: View {
             .navigationTitle(recipe.name)
     }
 }
-
-//struct Ingredient: Identifiable {
-//    let name: String
-//    let amount: String
-//    let id = UUID()
-//}
-//
-//struct IngredientTable: View {
-//    var body: some View {
-//        Table(ingredients) {
-//            TableColumn("Ingredient", value: \.name)
-//            TableColumn("Amount", value: \.amount)
-//        }
-//    }
-//}
 
 //
 //struct RecipeDetail_Previews: PreviewProvider {

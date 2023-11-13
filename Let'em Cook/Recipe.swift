@@ -9,22 +9,9 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-struct Recipe: Hashable,Identifiable,Decodable{
-    //Recipe.json file structure
-    var id: Int
+struct Ingredient: Decodable, Hashable, Identifiable {
     var name: String
-    var description: String
-    var category:String
-    var distance:String
-    var difficulty:String
-    var spice:String
-    var time:String
-    
-    private var imageName: String
-    var image: Image{
-        Image(imageName);
-    }
-    
+    var amount: String
 }
 
 struct Meal: Decodable {
@@ -32,7 +19,7 @@ struct Meal: Decodable {
     var name: String = "Unnamed Recipe"
     var instructions: String = "No instructions provided."
     var thumbnail: String? = nil
-    var ingredients: [String] = []
+    var ingredients: [Ingredient] = []
     var measures: [String] = []
     var category: String = "Unspecified"
     var origin: String = "Unspecified"

@@ -14,7 +14,7 @@ struct RecipeList: View {
             NavigationLink{
                 RecipeDetail(recipe: recipe)
             } label: {
-                TestView(recipe: recipe)
+                RecipeRow(recipe: recipe)
                     .frame(width: 300, height: 150)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
             }
