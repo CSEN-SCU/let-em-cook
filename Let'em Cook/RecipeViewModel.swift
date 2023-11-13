@@ -25,7 +25,7 @@ func getMeals(query: String) async -> [Meal] {
 
             if let object = json as? [String: Any] {
 
-                if let meals = object["meals"] as? any Sequence {
+                if let meals = object["meals"] as? [Any] {
                     for meal in meals {
 
                         if let mealDict = meal as? [String: Any] {
