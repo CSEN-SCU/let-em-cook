@@ -17,7 +17,7 @@ struct ContentView: View {
         NavigationView{
             VStack{
                 Text(title)
-                NavigationLink(destination: RecipeList(recipes: vm.meals) , isActive: $isActive){
+                NavigationLink(destination: RecipeList(recipes: vm.meals, vm: vm) , isActive: $isActive){
                     Button(action: {
                         Task{
                             await vm.mealsByIngredient(c:"chicken")

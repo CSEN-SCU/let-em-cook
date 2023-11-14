@@ -15,7 +15,6 @@ struct RecipeDetail: View {
                     AsyncImage(url: URL(string:recipe.thumbnail ?? "NA" ))
                         { image in image.resizable() }
                         placeholder: { Color.gray }
-                            .frame(width: .infinity)
                             .aspectRatio(contentMode: .fit)
                 }
                 
