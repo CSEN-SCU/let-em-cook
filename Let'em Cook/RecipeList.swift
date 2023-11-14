@@ -16,6 +16,7 @@ struct RecipeList: View {
                 Task{
                     await vm.mealsBySearch(c: searchTerm)
                     print(stores)
+                    print(locateIngridients(store:stores[0],meal:vm.meals?.meals[0] ?? Meal()))
                 }
             }
             List(vm.meals?.meals ?? []) { recipe in

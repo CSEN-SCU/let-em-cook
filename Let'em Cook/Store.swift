@@ -12,5 +12,15 @@ struct Store: Decodable, Identifiable{
     var name:String
     var latitude:Float
     var longitude:Float
-    var ingredients: [Ingredient] = []
+    var ingredients: [String] = []
+}
+//Function that takes store and Meal and finds if all the recipes in the Meal can be found in the store
+func locateIngridients(store: Store, meal:Meal) -> Bool {
+    for ingredient in meal.ingredients{
+        print(ingredient.id,ingredient.name)
+    }
+    for ingredient in store.ingredients{
+        print(ingredient)
+    }
+    return false
 }

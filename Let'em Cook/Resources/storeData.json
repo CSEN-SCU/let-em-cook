@@ -5,12 +5,8 @@
         "latitude": 34.5678,
         "longitude":-84.6789,
         "ingredients":[
-            {
-                "id":"uybu",
-                "name":"Tofu",
-                "amount": "alot"
-                
-            },
+            "Tofu",
+            "Chicken",
         ]
         
     },
