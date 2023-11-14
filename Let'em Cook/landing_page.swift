@@ -22,7 +22,6 @@ extension Color
 }
 
 struct landing_page: View {
-    @ObservedObject var vm = RecipeViewModel()
     var body: some View {
         NavigationView {
             VStack {
@@ -32,7 +31,7 @@ struct landing_page: View {
                 Color.white.frame(minWidth: 200, maxWidth: .infinity, maxHeight: 250).overlay(
                     VStack { // Change 'Group' to 'VStack'
                         Text("Find ").font(.system(size: 35, design: .rounded)).foregroundColor(.black)+Text("recipes").bold().font(.system(size: 35, design: .rounded)).foregroundColor(Color(hex: 0x63A313))+Text("\n near you!").font(.system(size: 35, design: .rounded)).foregroundColor(.black)
-                        NavigationLink(destination: RecipeList(vm:vm)) {
+                        NavigationLink(destination: RecipeList()) {
                             Text("Search Now!")
                                 .fontWeight(.bold)
                                 .font(.title)
