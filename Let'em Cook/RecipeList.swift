@@ -13,7 +13,10 @@ struct RecipeList: View {
     var body: some View {
         VStack {
             SearchBar(searchTerm: $searchTerm).onSubmit {
-                Task{ await vm.mealsBySearch(c: searchTerm) }
+                Task{
+                    await vm.mealsBySearch(c: searchTerm)
+                    print(stores)
+                }
             }
             List(vm.meals?.meals ?? []) { recipe in
                 NavigationLink{
