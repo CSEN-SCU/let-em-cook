@@ -52,6 +52,6 @@ struct landing_page: View {
 }
 
 
-#Preview {
-    landing_page()
-}
+//#Preview {
+//    landing_page()
+//}
