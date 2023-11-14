@@ -15,12 +15,23 @@ struct Store: Decodable, Identifiable{
     var ingredients: [String] = []
 }
 //Function that takes store and Meal and finds if all the recipes in the Meal can be found in the store
-func locateIngridients(store: Store, meal:Meal) -> Bool {
+func locateIngredients(stores: [Store], meal:Meal) -> [Store] {
+    var res:[Store]=[]
+    var storeIngredients:Set<String>=[]
+    var mealIngredients:Set<String>=[]
     for ingredient in meal.ingredients{
-        print(ingredient.id,ingredient.name)
+        mealIngredients.insert(ingredient.name.lowercased())
     }
-    for ingredient in store.ingredients{
-        print(ingredient)
+    
+    for store in stores{
+        for s in store.ingredients{
+            storeIngredients.insert(s.lowercased())
+        }
+        if mealIngredients.isSubset(of: storeIngredients){
+            res.append(store)
+        }
+        storeIngredients=[]
     }
-    return false
+    print(mealIngredients)
+    return res
 }

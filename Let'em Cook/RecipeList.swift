@@ -16,9 +16,10 @@ struct RecipeList: View {
                 Task{
                     await vm.mealsBySearch(c: searchTerm)
                     print(stores)
-                    print(locateIngridients(store:stores[0],meal:vm.meals?.meals[0] ?? Meal()))
+                    print(locateIngredients(stores:stores,meal:vm.meals?.meals[0] ?? Meal()))
                 }
             }
+            //if list of stores is empty from locateIngredients , omit recipe from RecipeList
             List(vm.meals?.meals ?? []) { recipe in
                 NavigationLink{
                     RecipeDetail(recipe: recipe)
