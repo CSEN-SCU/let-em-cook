@@ -11,7 +11,7 @@ import SwiftUI
 struct Let_em_CookApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            landing_page()
         }
     }
 }

@@ -22,6 +22,10 @@ extension Color
 }
 
 struct landing_page: View {
+    @State private var title: String = "hi"
+    @State private var isActive = false
+    @State private var meals: Meals?
+    @ObservedObject var vm = RecipeViewModel()
     var body: some View {
         NavigationView {
             VStack {
@@ -31,16 +35,23 @@ struct landing_page: View {
                 Color.white.frame(minWidth: 200, maxWidth: .infinity, maxHeight: 250).overlay(
                     VStack { // Change 'Group' to 'VStack'
                         Text("Find ").font(.system(size: 35, design: .rounded)).foregroundColor(.black)+Text("recipes").bold().font(.system(size: 35, design: .rounded)).foregroundColor(Color(hex: 0x63A313))+Text("\n near you!").font(.system(size: 35, design: .rounded)).foregroundColor(.black)
-                        NavigationLink(destination: RecipeList()) {
-                            Text("Search Now!")
-                                .fontWeight(.bold)
-                                .font(.title)
-                                .padding()
-                                .background(Color(hex: 0x63A313))
-                                .cornerRadius(40)
-                                .foregroundColor(.white)
-                                .padding(10)
-                                .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color(hex: 0x63A313), lineWidth: 5))
+                        NavigationLink(destination: RecipeList(recipes: vm.meals) , isActive: $isActive) {
+                            Button(action: {
+                                Task{
+                                    await vm.mealsByIngredient(c:"chicken")
+                                    isActive=true
+                                }
+                            }){
+                                Text("Search Now!")
+                                    .fontWeight(.bold)
+                                    .font(.title)
+                                    .padding()
+                                    .background(Color(hex: 0x63A313))
+                                    .cornerRadius(40)
+                                    .foregroundColor(.white)
+                                    .padding(10)
+                                    .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color(hex: 0x63A313), lineWidth: 5))
+                            }
                         }
                     }
                 ).ignoresSafeArea()
@@ -52,6 +63,8 @@ struct landing_page: View {
 }
 
 
-//#Preview {
-//    landing_page()
-//}
+struct landing_page_Previews: PreviewProvider {
+    static var previews: some View {
+        landing_page()
+    }
+}
