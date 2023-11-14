@@ -8,24 +8,23 @@
 import SwiftUI
 
 struct RecipeDetail: View {
-    var recipe: Recipe
-    var dummyIngredients: [String] = ["Burrito", "Person to eat the burrito"]
+    var recipe: Meal
     var body: some View {
-        NavigationView {
             ScrollView {
                 ZStack{
-                    recipe.image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                    AsyncImage(url: URL(string:recipe.thumbnail ?? "NA" ))
+                        { image in image.resizable() }
+                        placeholder: { Color.gray }
+                            .aspectRatio(contentMode: .fit)
                 }
                 
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("Description")
+                    Text("Instructions")
                         .font(.title)
                         .fontWeight(.bold)
                         .padding(.top, 5)
                     
-                    Text(recipe.description)
+                    Text(recipe.instructions)
                         .font(.body)
                         .padding(.bottom, 20)
                     
@@ -51,8 +50,8 @@ struct RecipeDetail: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 5){
-                        ForEach(dummyIngredients, id: \.self) { data in
-                            Text("•  \(data)")
+                        ForEach(recipe.ingredients, id: \.self) { data in
+                            Text("•  \(data.name)")
                         }
                     }
                     
@@ -70,13 +69,13 @@ struct RecipeDetail: View {
                 maxWidth: .infinity,
                 alignment: .topLeading
             )
-
-        }.navigationTitle(recipe.name)
+            .navigationTitle(recipe.name)
     }
 }
 
-struct RecipeDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipeDetail(recipe: recipes[1])
-    }
-}
+//
+//struct RecipeDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecipeDetail(recipe: recipes[1])
+//    }
+//}

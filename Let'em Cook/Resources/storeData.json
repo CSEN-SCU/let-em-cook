@@ -1,0 +1,14 @@
+[
+    {
+        "id":"1",
+        "name": "Walmart",
+        "latitude": 34.5678,
+        "longitude":-84.6789,
+        "ingredients":[
+            "Tofu",
+            "Chicken",
+        ]
+        
+    },
+    
+]
