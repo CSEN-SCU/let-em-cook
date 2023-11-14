@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct RecipeList: View {
-    var recipes: Meals?
     @State var searchTerm: String = ""
-    @ObservedObject var vm: RecipeViewModel
+    @ObservedObject var vm = RecipeViewModel()
     var body: some View {
         VStack {
             SearchBar(searchTerm: $searchTerm).onSubmit {
                 Task{ await vm.mealsBySearch(c: searchTerm) }
             }
-            List(recipes?.meals ?? []) { recipe in
+            List(vm.meals?.meals ?? []) { recipe in
                 NavigationLink{
                     RecipeDetail(recipe: recipe)
                 } label: {
@@ -57,6 +56,7 @@ struct SearchBar: View {
 struct RecipeList_Previews: PreviewProvider {
     @State static var searchTerm: String = ""
     static var previews: some View {
-        SearchBar(searchTerm: $searchTerm)
+//        SearchBar(searchTerm: $searchTerm)
+        ContentView()
     }
 }
