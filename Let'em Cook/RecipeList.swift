@@ -9,23 +9,54 @@ import SwiftUI
 
 struct RecipeList: View {
     var recipes: Meals?
+    @State var searchTerm: String = ""
+    @ObservedObject var vm: RecipeViewModel
     var body: some View {
-        List(recipes?.meals ?? []) { recipe in
-            NavigationLink{
-                RecipeDetail(recipe: recipe)
-            } label: {
-                RecipeRow(recipe: recipe)
-                    .frame(width: 300, height: 150)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
+        VStack {
+            SearchBar(searchTerm: $searchTerm).onSubmit {
+                Task{ await vm.mealsBySearch(c: searchTerm) }
             }
-           
-                           
-        }.navigationTitle("Recipes")
+            List(recipes?.meals ?? []) { recipe in
+                NavigationLink{
+                    RecipeDetail(recipe: recipe)
+                } label: {
+                    RecipeRow(recipe: recipe)
+                        .frame(width: 300, height: 150)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                }
+                
+                
+            }.navigationTitle("Recipes")
+        }
     }
 }
 
-//struct RecipeList_Previews: PreviewProvider {
-//    static var previews: some View {
-//
-//    }
-//}
+struct SearchBar: View {
+    @Binding var searchTerm: String
+    var body: some View {
+        HStack {
+            Image(systemName: "magnifyingglass")
+                .foregroundColor(Color.gray)
+            TextField("Search", text: $searchTerm)
+                .foregroundColor(Color.black)
+        }
+        .font(.headline)
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 25)
+                .fill(Color.white)
+                .shadow(color: Color.black.opacity(0.15),
+                       radius: 10,
+                       x: 0,
+                       y: 0)
+        )
+        .padding()
+    }
+}
+
+struct RecipeList_Previews: PreviewProvider {
+    @State static var searchTerm: String = ""
+    static var previews: some View {
+        SearchBar(searchTerm: $searchTerm)
+    }
+}
