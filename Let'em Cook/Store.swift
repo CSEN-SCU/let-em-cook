@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Store: Decodable, Identifiable{
+struct Store: Decodable, Identifiable {
     var id:String = UUID().uuidString
     var name:String
     var latitude:Float
