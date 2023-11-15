@@ -29,6 +29,8 @@ struct Meal: Decodable {
     var difficulty: String = "0"
     var spice: String = "0"
     var time: String = "0"
+    
+    var stores: [Store] = []
 }
 
 // Now conform to Identifiable

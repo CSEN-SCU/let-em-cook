@@ -72,8 +72,13 @@ func getMeals(query: String) async -> [Meal] {
                                 }
 
                             }
-
-                            results.append(result)
+                            
+                            // only display recipe if we can find a store with all ingredients
+                            result.stores = locateIngredients(stores:stores, meal:result)
+                            if result.stores.count > 0 {
+                                results.append(result)
+                            }
+                            
                         }
                     }
                 }
@@ -91,8 +96,7 @@ func getMeals(query: String) async -> [Meal] {
 }
 
 @MainActor class RecipeViewModel: ObservableObject {
-    @Published var meals: Meals?
-    @Published var meal:Meal?
+    @Published var meals: Meals = Meals(meals: [])
     init(){
         print("Recipe View Model Init")
     }

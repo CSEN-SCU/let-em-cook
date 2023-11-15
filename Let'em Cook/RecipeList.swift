@@ -15,11 +15,10 @@ struct RecipeList: View {
             SearchBar(searchTerm: $searchTerm).onSubmit {
                 Task{
                     await vm.mealsBySearch(c: searchTerm)
-                    print(stores)
-                    print(locateIngridients(store:stores[0],meal:vm.meals?.meals[0] ?? Meal()))
                 }
             }
-            List(vm.meals?.meals ?? []) { recipe in
+            //if list of stores is empty from locateIngredients , omit recipe from RecipeList
+            List(vm.meals.meals) { recipe in
                 NavigationLink{
                     RecipeDetail(recipe: recipe)
                 } label: {
