@@ -35,6 +35,7 @@ struct RecipeDetail: View {
                         
                         Button {
                             // should go to page with map
+                            // stores + coordinates can be found under recipe.stores
                         } label: {
                             VStack{
                                 Image(systemName: "location.north.circle")
