@@ -6,15 +6,28 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct RecipeRow: View {
+    
     var recipe:Meal?
-    //@State private var recipe: Meal?
-    @ObservedObject var vm = RecipeViewModel()
+      //@State private var recipe: Meal?
+      @ObservedObject var vm = RecipeViewModel()
+      @State private var route: MKRoute?
     
     var body: some View {
        // Color.green
        //     .overlay(
+        
+        var travelTime: String? {
+            getDirections()
+            guard let route else { return nil }
+            let formatter = DateComponentsFormatter()
+            formatter.unitsStyle = .abbreviated
+            formatter.allowedUnits = [.hour, .minute]
+            return formatter.string(from: route.expectedTravelTime)
+        }
+                
             HStack {
                 AsyncImage(
                     url: URL(string:recipe?.thumbnail ?? "NA" )
@@ -68,7 +81,7 @@ struct RecipeRow: View {
                         HStack{
                             Image(systemName:"location.fill")
                                 //Text(recipe?.distance ?? "NA")
-                                Text(String(Int.random(in: 0..<6)))
+                            Text("\(travelTime ?? "...")")
                                 .foregroundStyle(.black)
                         }
                             .cornerRadius(10)
@@ -85,6 +98,29 @@ struct RecipeRow: View {
 //                }
 //            }
         }
+    
+    func getDirections() {
+                route = nil
+                let request = MKDirections.Request()
+                request.source = MKMapItem(placemark: MKPlacemark(coordinate: .userPos))
+                
+                let storeLat = CLLocationDegrees((recipe?.stores[0].latitude)!)
+                let storeLong = CLLocationDegrees((recipe?.stores[0].longitude)!)
+                let storePos = CLLocationCoordinate2D(latitude: storeLat, longitude: storeLong)
+                let storePlacemark = MKPlacemark(coordinate: storePos)
+                let storeMapItem = MKMapItem(placemark: storePlacemark)
+                print(String(storeLat))
+                print(String(storeLong))
+                request.destination = storeMapItem
+                
+                Task {
+                    let directions = MKDirections(request: request)
+                    let response = try? await directions.calculate()
+                    route = response?.routes.first
+                }
+            }
+    
+    
     }
 
 
@@ -98,4 +134,8 @@ struct TestView_Previews: PreviewProvider {
             
         }
     }
+}
+
+extension CLLocationCoordinate2D {
+    static var userPos = CLLocationCoordinate2D(latitude: 37.34748307563623, longitude: -121.93595919584234)
 }

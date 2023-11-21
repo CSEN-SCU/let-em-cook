@@ -32,21 +32,6 @@ struct RecipeDetail: View {
                         Text("Ingredients")
                             .font(.title)
                             .fontWeight(.bold)
-                        
-                        Button {
-                            // should go to page with map
-                            // stores + coordinates can be found under recipe.stores
-                        } label: {
-                            VStack{
-                                Image(systemName: "location.north.circle")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .symbolRenderingMode(.monochrome)
-                                    .foregroundStyle(.blue)
-                                    .padding(.leading, 10)
-                            }
-                        }
-                        
                         Spacer()
                     }
                     
@@ -65,6 +50,28 @@ struct RecipeDetail: View {
                 .background(Color.white)
                 .cornerRadius(40.0)
                 .offset(y:-40)
+                
+                HStack(){
+                                        Spacer()
+                                        NavigationLink{
+                                            UserMapView(recipe: recipe)
+                                        } label: {
+                                            HStack(){
+                                                Image(systemName: "location.north.circle")
+                                                Text("View Stores")
+                                            }
+                                            .fontWeight(.bold)
+                                            .font(.title)
+                                            .padding()
+                                            .background(Color(hex: 0x63A313))
+                                            .cornerRadius(40)
+                                            .foregroundColor(.white)
+                                            .padding(10)
+                                            .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color(hex: 0x63A313), lineWidth: 5))
+                                        }
+                                        Spacer()
+                                  }.padding(.top, 20)
+                
             }
             .frame(
                 maxWidth: .infinity,

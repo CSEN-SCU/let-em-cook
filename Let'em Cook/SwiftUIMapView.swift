@@ -9,6 +9,9 @@ struct UserMapView: View {
     @State private var searchResults: [MKMapItem] = []
     @State private var selectedResult: MKMapItem?
     @State private var route: MKRoute?
+    @State private var stores: [MKMapItem] = []
+    
+    var recipe:Meal?
     
     var body: some View {
         
@@ -25,7 +28,10 @@ struct UserMapView: View {
         VStack{ // entire page stacked vertically
             HStack { // menu at the top
                 Button {
-                    search(for: "Grocery Store")
+                    //search(for: "Grocery Store")
+                    print("Pressed")
+                    //print(recipe?.stores[0].name)
+                    populateStores()
                 } label: {
                     Label("Grocery Store", systemImage: "storefront")
                 }.labelStyle(.iconOnly)
@@ -50,9 +56,11 @@ struct UserMapView: View {
                     .foregroundStyle(.green.opacity(0.35))
                 
                 // Places markers in each position found during the search
-                ForEach(searchResults, id: \.self) { result in
+                ForEach(stores, id: \.self) { result in
                     Marker(item: result);
                 }
+                
+                
                 
             }.frame(height: UIScreen.main.bounds.height*0.65).onChange(of: selectedResult) {
                 getDirections() // gets approximate time to location every time a new location is selected
@@ -107,7 +115,7 @@ struct UserMapView: View {
             
         }
     } // body
-    
+    /*
     func search(for query: String) {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = query
@@ -120,7 +128,7 @@ struct UserMapView: View {
             searchResults = response?.mapItems ?? []
         }
     } //search
-    
+    */
     func getDirections() {
         route = nil
         guard let selectedResult else { return }
@@ -135,6 +143,20 @@ struct UserMapView: View {
         }
     } //getDirections
     
+    func populateStores() {
+        print("Function time")
+        for store in recipe!.stores {
+            print("Printing coords")
+            print(String(store.latitude))
+            print(String(store.longitude))
+            let storeLat = CLLocationDegrees((store.latitude))
+            let storeLong = CLLocationDegrees((store.longitude))
+            let storeMapItem = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: CLLocationDegrees(storeLat), longitude: CLLocationDegrees(storeLong))))
+            storeMapItem.name = store.name
+            stores.append(storeMapItem)
+        }
+    }
+    
     func getURLFromName(storeName: String) -> String {
         if(storeName == "Safeway") {
             return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbfbZT7iJFEMkZCHxnZy-8GyzZJDdIBy3nCb8-GrI&s"
@@ -148,6 +170,9 @@ struct UserMapView: View {
         if(storeName == "Target") {
             return "https://corporate.target.com/getmedia/0289d38f-1bb0-48f9-b883-cd05e19b8f98/Target_Bullseye-Logo_Red_transparent.png?width=460"
         }
+        if(storeName == "Walmart") {
+            return "https://www.walmartconnect.com.mx/wp-content/uploads/2022/12/WM-SC-300x300.png"
+        }
         
         //Catches all the rest
         return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsQphP7nQfQ2-DSNJlseIsCosU1v5M1HSMO1U9w3Pzlw&s"
@@ -155,9 +180,9 @@ struct UserMapView: View {
     
 } //view (outer)
 
-#Preview {
-    UserMapView()
-}
+//#Preview {
+//    UserMapView()
+//}
 
 // campus is essentially acting as the user position right now because Swift cannot get our actual location
 
