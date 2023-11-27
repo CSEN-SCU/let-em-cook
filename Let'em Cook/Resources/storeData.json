@@ -1,6 +1,6 @@
 [
     {
-        "id":"1",
+        "id":"0",
         "name": "Walmart",
         "latitude": 34.5678,
         "longitude":-84.6789,
@@ -26,5 +26,149 @@
         ]
         
     },
+    {
+        "id":"1",
+        "name": "Walmart",
+        "latitude": 34.7234,
+        "longitude":-84.2567,
+        "ingredients":[
+            "soy sauce",
+            "water",
+            "brown sugar",
+            "ground ginger",
+            "minced garlic",
+            "cornstarch",
+            "chicken breasts",
+            "stir-fry vegetables",
+            "brown rice"
+        ]
+        
+    },
+    {
+        "id":"2",
+        "name": "Kroger",
+        "latitude": 34.1987,
+        "longitude":-84.9987,
+        "ingredients":[
+            "Sausages",
+            "Tomato Sauce",
+            "Butter Beans",
+            "Black Treacle",
+            "English Mustard"
+            "Herring",
+            "Onion",
+            "Olive Oil",
+            "Allspice",
+            "Pepper",
+            "Bay Leaf"
+            "Butter",
+            "Muscovado Sugar",
+            "Plain Flour",
+            "Eggs",
+            "Ground Almonds",
+            "Sherry",
+            "Candied Peel",
+            "Glace Cherry",
+            "Raisins",
+            "Currants",
+            "Pecan Nuts",
+            "Lemon",
+            "Mixed Spice",
+            "Rose water",
+            "Vanilla Extract",
+            "Baking Powder"
+        ]
+        
+    },
+    {
+        "id":"3",
+        "name": "Publix",
+        "latitude": 34.8956,
+        "longitude":-84.3321,
+        "ingredients":[
+            "Sausages",
+            "Tomato Sauce",
+            "Butter Beans",
+            "Black Treacle",
+            "English Mustard"
+            "Prawns",
+            "Olive Oil",
+            "Dry White Wine",
+            "Fish Stock",
+            "Fennel",
+            "Onion",
+            "Garlic",
+            "Potatoes",
+            "Orange",
+            "Star Anise",
+            "Bay Leaf",
+            "Harissa Spice",
+            "Tomato Puree",
+            "Chopped Tomatoes",
+            "Mussels",
+            "White Fish",
+            "Thyme",
+            "Bread",
+            "Lemon",
+            "Mixed Spice",
+            "Rose water",
+            "Vanilla Extract",
+            "Baking Powder"
+        ]
+        
+    },
+    {
+        "id":"4",
+        "name": "Safeway",
+        "latitude": 34.3321,
+        "longitude":-84.7612,
+        "ingredients":[
+            "Plain Flour",
+            "Salt",
+            "Curry Powder",
+            "Butter",
+            "Water",
+            "Minced Beef",
+            "Allspice",
+            "Black Pepper",
+            "Vegetable Oil",
+            "Onions",
+            "Red Pepper",
+            "Garlic",
+            "Thyme",
+            "Salt",
+            "Tomato Ketchup",
+            "Water",
+            "Onions",
+            "Egg",
+            "Water",
+        ]
+        
+    },
+    {
+        "id":"5",
+        "name": "Safeway",
+        "latitude": 34.7612,
+        "longitude":-84.4999,
+        "ingredients":[
+            "Beef",
+            "Olive Oil",
+            "Shallots",
+            "Garlic",
+            "Bacon",
+            "Thyme",
+            "Bay Leaf",
+            "Stout",
+            "Beef Stock",
+            "Corn Flour",
+            "Oysters",
+            "Plain Flour",
+            "Salt",
+            "Butter",
+            "Eggs"
+        ]
+        
+    },
+    
     
 ]
